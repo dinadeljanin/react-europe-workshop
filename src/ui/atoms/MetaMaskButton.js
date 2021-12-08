@@ -17,8 +17,8 @@ const AnchorButton = styled.a`
   align-items: center;
   cursor: pointer;
   img {
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
     margin-right: 5px;
   }
 `
