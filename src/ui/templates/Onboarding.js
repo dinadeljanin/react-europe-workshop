@@ -5,6 +5,7 @@ import MetaMaskButton from '../atoms/MetaMaskButton'
 
 const Onboarding = () => {
   const { ethereum } = window
+
   const body = {
     header: "MetaMask wasn't detected",
     status: "warning",
@@ -18,7 +19,8 @@ const Onboarding = () => {
       </>
     )
   }
-  return ethereum ? <Modal body={body} /> : null
+  
+  return !ethereum ? <Modal body={body} /> : null
 }
 
 export default Onboarding

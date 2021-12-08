@@ -13,7 +13,9 @@
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "styled-components": "^5.3.3",
-    "web-vitals": "^1.0.1"
+    "use-immer": "^0.6.0",
+    "web-vitals": "^1.0.1",
+    "web3": "^1.6.1"
   },
   "scripts": {
     "start": "react-scripts start",
