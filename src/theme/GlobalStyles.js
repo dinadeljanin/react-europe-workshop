@@ -129,9 +129,19 @@ const GlobalStyles = createGlobalStyle`
   }
 
   button {
+    padding: 0.75em 1em;
+    border-radius: 25px;
     color: #fff;
+    width: fit-content;
+    height: fit-content;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
     background-color: #000;
-    border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    border: none;
     font-size: 1em;
     &:disabled {
       cursor: not-allowed;

@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import ReactDOM from 'react-dom'
 import styled from 'styled-components'
 import { AnimatePresence, motion } from 'framer-motion'
-import { transparentize, darken, cover } from 'polished'
+import { transparentize, cover } from 'polished'
 
 // Create Context
 // import { EthProvider } from '../../../context'
@@ -63,17 +63,15 @@ const Modal = ({body, onClick}) => {
   const [modalSeen, setModalSeen] = useState(true)
 
   const onExit = () => {
-    const clearModal = {
-        header: '',
-        message: '',
-        status: '',
-        details: {
-          address: '',
-          amount: 0,
-          transactionFee: 0,
-          estimatedWait: ''
-      }
-    }
+    // const clearModal = {
+    //     header: '',
+    //     message: '',
+    //     status: '',
+    //     details: {
+    //       address: '',
+    //       amount: 0,
+    //   }
+    // }
     setModalSeen(false)
     // dispatch({ type: 'CLEAR_MODAL', payload: clearModal })
   }
