@@ -5,17 +5,13 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { transparentize, darken, cover } from 'polished'
 
 // Create Context
-import { EthProvider } from '../../../context'
-import { fadeInWithDelay, dropIn } from '../../../theme/FramerVariants.js'
-import { COLORS } from '../../../theme/ColorPalette'
-
+// import { EthProvider } from '../../../context'
+import { fadeInWithDelay, dropIn } from '../../theme/FramerVariants.js'
 import IconButton from '../atoms/IconButton'
-
-const { raisinBlack } = COLORS
 
 const Overlay = styled(motion.div)`
   ${cover}
-  background: ${transparentize(0.15, darken(0.075, raisinBlack))};
+  background: ${transparentize(0.45,'#000')};
   display: grid;
   height: 100%;
   position: absolute;
@@ -27,29 +23,41 @@ const Overlay = styled(motion.div)`
 `
 
 const Container = styled(motion.div)`
+  background-color: #fff;
   box-shadow:
     rgba(0, 0, 0, 0.19) 0px 10px 20px,
     rgba(0, 0, 0, 0.23) 0px 6px 6px;
   height: fit-content;
-  border-radius: 15px;
   position: relative;
   width: 400px;
-  z-index: 200;
+  z-index: 400;
+  border: 2px solid #000;
 `
 
-const Banner = styled.div`
-  border-radius: 15px;
-  background-size: cover;
-  background-position: 40% center;
+const Header = styled.div`
   display: grid;
-  height: 125px;
   place-items: center;
+  padding: 0;
+  border-bottom: 2px solid #000;
+  background-color: #FFE3E3;
+  height: 100px;
   width: 100%;
+`
+
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em 1em 1.25em;
+  p {
+    margin-bottom: 1.25em;
+    text-align: center;
+  }
 `
 
 const Modal = ({body, onClick}) => {
   // Create context
-  const { dispatch } = useContext(EthProvider)
+  // const { dispatch } = useContext(EthProvider)
 
   const {header, status, content} = body
   const [modalSeen, setModalSeen] = useState(true)
@@ -67,7 +75,7 @@ const Modal = ({body, onClick}) => {
       }
     }
     setModalSeen(false)
-    dispatch({ type: 'CLEAR_MODAL', payload: clearModal })
+    // dispatch({ type: 'CLEAR_MODAL', payload: clearModal })
   }
 
   return modalSeen ? (
@@ -86,10 +94,12 @@ const Modal = ({body, onClick}) => {
               exit="exit"
               >
               <IconButton handleClick={onExit} />
-              <Banner status={status}>
-                <h2>{header}</h2>
-              </Banner>
-              {content}
+              <Header status={status}>
+                <h3>{header}</h3>
+              </Header>
+              <Content>
+                {content}
+              </Content>
             </Container>
           </Overlay>
         </AnimatePresence>,

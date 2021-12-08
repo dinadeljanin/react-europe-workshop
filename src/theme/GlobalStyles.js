@@ -11,6 +11,7 @@ const GlobalStyles = createGlobalStyle`
     position: relative;
     color: #000;
     width: 100vw;
+    font-family: 'Quicksand', sans-serif;
     > #root {
       overflow: scroll;
       position: relative;

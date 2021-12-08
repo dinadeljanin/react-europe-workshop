@@ -2,14 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
-import xClose from '../../../assets/icons/x-close.svg'
+import exit from '../../assets/exit.svg'
 
 const icons = {
-  'exit': xClose
+  'exit': exit
 }
 
 const Button = styled(motion.button)`
-  background: url(${icons['exit']}) center;
+  background: url(${icons['exit']}) center no-repeat;
   border: none;
   cursor: pointer;
   height: 30px;
