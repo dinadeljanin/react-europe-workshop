@@ -22,8 +22,8 @@ contract Web3Workshop {
   // see: https://docs.soliditylang.org/en/v0.8.3/types.html?highlight=address#address
   address public owner;
 
-  // Create NFT ticket
-  NFTTicket nftTicket;
+  // Create NFT ticket contract instance
+  NFTTicket nftTicket = NFTTicket(owner);
 
   // Do we want a bool for if someone is attending, 
   // or rather how many tickets they have, 
