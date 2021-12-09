@@ -47,7 +47,6 @@ export const Provider = ({children}) => {
   }, [connectProvider])
 
   window.ethereum.on('accountsChanged', () => {
-    console.log('o')
     connectUser()
     window.location.reload()
   })

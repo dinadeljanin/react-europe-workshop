@@ -50,7 +50,7 @@ const Balance = () => {
       <p>Available Balance</p>
       {balance ? (
         <div>
-          <p>{smolBalance}</p>
+          <p>{smolBalance > 1 ? smolBalance : smolBalance.toFixed(5)}</p>
           <img src={eth} alt='Ethereum Logo' />
         </div>
       ):(

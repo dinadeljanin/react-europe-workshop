@@ -29,7 +29,6 @@ const Form = () => {
 
   const buyTicket = async (e) => {
     e.preventDefault()
-    console.log('ooooo')
   }
 
   return (
