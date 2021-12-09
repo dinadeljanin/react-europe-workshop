@@ -110,27 +110,41 @@ Currently, has APIs which allow you to [sign requests](https://docs.metamask.io/
 
 ### What do we use MetaMask for as end user and developer?
 
-...
+For end users, MetaMask is portal to the internet of value. It allows users to interact wtih decentralized applications without having to run their own Ethereum nodes.
 
-### How do we access [Ethereum Network via Metamask]()?
+Currently, users can interact with over 50,000 DApps and growing!
 
-...
+MetaMask also serves as a secure decentralized key management system, helping users own and control their keys. MetaMask equips you with a key vault, secure login, token wallet, and token exchange—everything you need to manage your digital assets.
 
-### How do we use [MetaMask APIs]() to interact with Web3?
+### How do we access [Ethereum Network via Metamask](https://docs.metamask.io/guide/ethereum-provider.html)?
 
-...
+See the `/src/index.js`
+
+Checkout [@metamask/detect-provider](https://www.npmjs.com/package/@metamask/detect-provider). You can also use [web3-react](https://github.com/NoahZinsmeister/web3-react) and [web3-react-injector](https://www.npmjs.com/package/@web3-react/injected-connector).
+
+### How do we use [MetaMask APIs](https://docs.metamask.io/guide/ethereum-provider.html#table-of-contents) to interact with Web3?
+
+You can consult our [docs at MetaMask.io](https://docs.metamask.io/guide/).
 
 ### Where and how do we hold state with Web3?
 
-    See INSERT FILE and read the comments.
+    See the /src directory
 
 ### How do we interact with Smart Contracts?
 
-    See INSERT FILE and read the comments.
+    Check out the cryptozombies course referenced below.
 
 ### How do we read Smart Contracts?
 
 See our curated list below to learn more! [Solidity by Example](https://solidity-by-example.org/) provides and easy way to learn Solidity.
+
+### What is Truffle?
+
+Truffle is a world class smart contract development environment Ethereum Virtual Machine (EVM) based blockchains.
+
+### What is EthersJS?
+
+The ethers.js library aims to be a complete and compact library for interacting with the Ethereum Blockchain and its ecosystem.
 
 ### Want to learn more about DApp development?
 
