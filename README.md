@@ -1,6 +1,8 @@
 # React Europe Web3 Workshop
 
-This workshop will cover ....
+This workshop will cover how to use React with Web3 using MetaMask.
+
+Along the way, we will get an overview of blockchains, Ethereum, smart contracts, MetaMask, and why web3 is so cool!
 
 ## Set up Commands
 
@@ -12,100 +14,129 @@ yarn add truffle -g
 truffle init
 ```
 
-## FAQs
+---
 
-1. What are [blockchains](https://www.youtube.com/watch?v=SSo_EIwHSd4)?  
-   Simply, a single blockchain is like a linked list that is connected by the hash of the previous block of information. By hashing blocks and linking them together, they increase the difficulty of manipulation.
+## Code Deep Dive
 
-   A blockchain network is when this blockchain is spread across various nodes for redundancy. The more decentralized the network, the more tamper-resistant the network. This increases trust in the system, which reduces the need for trust between entities. Through a consensus mechanism, the network's state is constantly updated.
+### Front End
 
-   In a sense, a blockchain is a database AND a network rolled up into one.
+### Back End
 
-   The blockchain's key innovation is to commoditize trust and allow for coordination between peers in open adversarial environments.
+---
 
-   Get a general sense of blockchain and its primitives by playing with a simple one created by [Anders Brownsworth](https://andersbrownworth.com/blockchain/hash).
+## Crash Course into Web3
 
-   [This article](https://unchained.com/blog/blockchain-spectrum/) explains why for many, it's hard to get bitcoin and blockchains in general. It's an exciting and eye-opening read.
+### What are [blockchains](https://www.youtube.com/watch?v=SSo_EIwHSd4)?
 
-2. What is [Ethereum](https://ethereum.org/en/what-is-ethereum/)?
+Simply, a single blockchain is like a linked list that is connected by the hash of the previous block of information. By hashing blocks and linking them together, they increase the difficulty of manipulation.
 
-   Ethereum is the leading programmbale blockchain, allowing for developers to leverage the security of
+A blockchain network is when this blockchain is spread across various nodes for redundancy. The more decentralized the network, the more tamper-resistant the network. This increases trust in the system, which reduces the need for trust between entities. Through a consensus mechanism, the network's state is constantly updated.
 
-   To get an understanding of how Ethereum fits into the evolution of the internet, read [Programmable Blockchains in context by Vinay Gupta](https://media.consensys.net/programmable-blockchains-in-context-ethereum-s-future-cd8451eb421e). Its a mind bending but amazing read. His talk on the [history of computing and how it fits with blockchains](https://vimeo.com/161183966) also is worth a look.
+In a sense, a blockchain is a database AND a network rolled up into one.
 
-3. What is [Web3](https://ethereum.org/en/developers/docs/web2-vs-web3/)?
+The blockchain's key innovation is to commoditize trust and allow for coordination between peers in open adversarial environments.
 
-   Web2 refers to the version of the internet most of us know today. An internet dominated by companies that provide services in exchange for your personal data.
+Get a general sense of blockchain and its primitives by playing with a simple one created by [Anders Brownsworth](https://andersbrownworth.com/blockchain/hash).
 
-   Web3, in the context of Ethereum, refers to decentralized apps that run on the blockchain. These are apps that allow anyone to participate without monetising their personal data.
+[This article](https://unchained.com/blog/blockchain-spectrum/) explains why for many, it's [hard to get bitcoin and blockchains in general](https://twitter.com/TaylorPearsonMe/status/923998769045127168). It's an exciting and eye-opening read.
 
-4. Why Ethereum and Web3?
+![the-blockchain-spectrum](img/the-blockchain-spectrum.png)
 
-   JavaScript allows you to add interactivity. Ethereum and Solidity enable you to add collaboration and ownership, enabling real decentralization and helping fulfil the internet's promise.
+### What is [Ethereum](https://ethereum.org/en/what-is-ethereum/)?
 
-   Furthermore, web3 apps on the same blockchain are composable and interoperable. Because the network is the database, web3 apps can build upon each other in a permissionless manner. These qualities led to a Cambrian Explosion of innovation in web3!
+Ethereum is the leading programmbale blockchain, allowing for developers to leverage the security of
 
-   A great podcast that puts everything into perspective is [Moon Math - The Bull Case for Cryptography](https://www.youtube.com/watch?v=ycK3AUTdl1w) by Bankless featuring Ethereum Researcher Justin Drake.
+To get an understanding of how Ethereum fits into the evolution of the internet, read [Programmable Blockchains in context by Vinay Gupta](https://media.consensys.net/programmable-blockchains-in-context-ethereum-s-future-cd8451eb421e). Its a mind bending but amazing read. His talk on the [history of computing and how it fits with blockchains](https://vimeo.com/161183966) also is worth a look.
 
-5. Why is Ethereum so special?
+### What is [Web3](https://ethereum.org/en/developers/docs/web2-vs-web3/)?
 
-   From another perspective, Ethereum and smart contract platforms commoditize networks. Commoditization is important because it helps drive standardization and innovation.
+Web2 refers to the version of the internet most of us know today. An internet dominated by companies that provide services in exchange for your personal data.
 
-   Ethereum commoditizes:
+Web3, in the context of Ethereum, refers to decentralized apps that run on the blockchain. These are apps that allow anyone to participate without monetising their personal data.
 
-   - the network which runs the ecosystem
-   - the shared database between siloed business logic in the form of smart contracts
-   - the data generated by these contracts
-     security which data and computers depend on to ensure its trustworthiness and immutability of value transfer.
-     <br>
-     <br>
+### Why Ethereum and Web3?
 
-     ![Ethereum Layers](/img/commodification-cycle.png)
+JavaScript allows you to add interactivity. Ethereum and Solidity enable you to add collaboration and ownership, enabling real decentralization and helping fulfil the internet's promise.
 
-     ON a deeper level, through its security guarantees, [Ethereum commoditizes “trust” between people](https://www.youtube.com/watch?v=UIBR99gOLOQ). Ethereum’s brilliance is extending those commodities to any programmable logic made by anyone. This allows for creating any protocol to transmit value in an open fashion with low switching costs between providers.
+Furthermore, web3 apps on the same blockchain are composable and interoperable. Because the network is the database, web3 apps can build upon each other in a permissionless manner. These qualities led to a Cambrian Explosion of innovation in web3!
 
-     It also means that you can leverage the security and database of a pre-existing network! If users already have an Ethereum wallet, they can bring their data and credentials to your application. You can remix and leverage their existing data to create new Apps without permission from any third party.
+A great podcast that puts everything into perspective is [Moon Math - The Bull Case for Cryptography](https://www.youtube.com/watch?v=ycK3AUTdl1w) by Bankless featuring Ethereum Researcher Justin Drake.
 
-     There is no data lock-in!
+### Why is Ethereum so special?
 
-   ![Ethereum Layers](img/ethereum-layers.png)
+From another perspective, Ethereum and smart contract platforms commoditize networks. Commoditization is important because it helps drive standardization and innovation.
 
-   Etheruem can [transform private goods into public goods and scale it globally at a low cost](https://newsletter.banklesshq.com/p/global-public-goods-and-the-protocol). An example of this is NASDAQ vs the UniSwap Protocol. Or Compound.Finance and Aave vs traditional money markets and setting global interest rates.
+Ethereum commoditizes:
 
-   Ethereum can also bootstrap communities to run these networks, allowing for shared ownership of public commons.
-   <br>
+- the network which runs the ecosystem
+- the shared database between siloed business logic in the form of smart contracts
+- the data generated by these contracts
+  security which data and computers depend on to ensure its trustworthiness and immutability of value transfer.
+  <br>
+  <br>
 
-6. What's a [Smart Contract](https://ethereum.org/en/developers/docs/smart-contracts/#top)?
+  ![Ethereum Layers](/img/commodification-cycle.png)
 
-   Smart contracts are programs that run on programmable blockchains like Ethereum.
+ON a deeper level, through its security guarantees, [Ethereum commoditizes “trust” between people](https://www.youtube.com/watch?v=UIBR99gOLOQ). Ethereum’s brilliance is extending those commodities to any programmable logic made by anyone. This allows for creating any protocol to transmit value in an open fashion with low switching costs between providers.
 
-   They have many uses and are limited to your imagination. For example, smart contracts can create decentralized real-time money markets, issue royalties and ownership for art, are parts of video games, and more!
+It also means that you can leverage the security and database of a pre-existing network! If users already have an Ethereum wallet, they can bring their data and credentials to your application. You can remix and leverage their existing data to create new Apps without permission from any third party.
 
-   Smart contracts allow you to connect to internet-native value infrastructure and incentivize collaboration to any application.
+There is no data lock-in!
 
-7. What is [MetaMask](https://metamask.io/)?
+![Ethereum Layers](img/ethereum-layers.png)
 
-   MetaMask is the leading crypto-wallet and the portal to the internet of value. Trusted by over 21 million users worldwide, start exploring blockchain applications in seconds.
+Etheruem can [transform private goods into public goods and scale it globally at a low cost](https://newsletter.banklesshq.com/p/global-public-goods-and-the-protocol). An example of this is NASDAQ vs the UniSwap Protocol. Or Compound.Finance and Aave vs traditional money markets and setting global interest rates.
 
-   MetaMask is the most permissionless and extensible wallet in the ecosystem. Furthermore, it aims to be the most decentralized and community focused wallet.
+Ethereum can also bootstrap communities to run these networks, allowing for shared ownership of public commons.
+<br>
 
-   Soon, developers will be able to extend Metamask through Metamask Snaps permissionlessly.
+### What's a [Smart Contract](https://ethereum.org/en/developers/docs/smart-contracts/#top)?
 
-   Currently, has APIs which allow you to [sign requests](https://docs.metamask.io/guide/signing-data.html#signing-data-with-metamask), act as a [single sign on](https://eliteionic.com/tutorials/creating-web3-login-with-ethereum-metamask-firebase-auth/), sign legal documents like [ETHSign](https://ethsign.xyz/), [encrypt and decrypt messages](https://docs.metamask.io/guide/rpc-api.html#eth-getencryptionpublickey) with your keys, [easily add custom networks and tokens](https://docs.metamask.io/guide/rpc-api.html#wallet-addethereumchain) like [Chainlist.org](https://chainlist.org/).
+Smart contracts are programs that run on programmable blockchains like Ethereum.
 
-8. What do we use MetaMask for as end user and developer?
+They have many uses and are limited to your imagination. For example, smart contracts can create decentralized real-time money markets, issue royalties and ownership for art, are parts of video games, and more!
 
-9. How do we access [Ethereum Network via Metamask]()?
-10. How do we use [MetaMask APIs]() to interact with Web3?
-11. Where and how do we hold state with Web3?
-12. How do we interact with Smart Contracts?
-13. How do we read Smart Contracts?
+Smart contracts allow you to connect to internet-native value infrastructure and incentivize collaboration to any application.
 
-    See our curated list below to learn more! [Solidity by Example](https://solidity-by-example.org/) provides and easy way to learn Solidity.
+### What is [MetaMask](https://metamask.io/)?
 
-14. Want to learn more about DApp development?
+MetaMask is the leading crypto-wallet and the portal to the internet of value. Trusted by over 21 million users worldwide, start exploring blockchain applications in seconds.
 
-    See our curated list below!
+MetaMask is the most permissionless and extensible wallet in the ecosystem. Furthermore, it aims to be the most decentralized and community focused wallet.
+
+Soon, developers will be able to extend Metamask through Metamask Snaps permissionlessly.
+
+Currently, has APIs which allow you to [sign requests](https://docs.metamask.io/guide/signing-data.html#signing-data-with-metamask), act as a [single sign on](https://eliteionic.com/tutorials/creating-web3-login-with-ethereum-metamask-firebase-auth/), sign legal documents like [ETHSign](https://ethsign.xyz/), [encrypt and decrypt messages](https://docs.metamask.io/guide/rpc-api.html#eth-getencryptionpublickey) with your keys, [easily add custom networks and tokens](https://docs.metamask.io/guide/rpc-api.html#wallet-addethereumchain) like [Chainlist.org](https://chainlist.org/).
+
+### What do we use MetaMask for as end user and developer?
+
+...
+
+### How do we access [Ethereum Network via Metamask]()?
+
+...
+
+### How do we use [MetaMask APIs]() to interact with Web3?
+
+...
+
+### Where and how do we hold state with Web3?
+
+    See INSERT FILE and read the comments.
+
+### How do we interact with Smart Contracts?
+
+    See INSERT FILE and read the comments.
+
+### How do we read Smart Contracts?
+
+See our curated list below to learn more! [Solidity by Example](https://solidity-by-example.org/) provides and easy way to learn Solidity.
+
+### Want to learn more about DApp development?
+
+See our curated list below!
+
+---
 
 ## 🐇 Curated list of resources to go down the rabbit hole:
 
@@ -132,7 +163,7 @@ truffle init
 ### Advanced
 
 - [Capture the Ether](https://capturetheether.com/) - Capture the Ether is a game in which you hack Ethereum smart contracts to learn about security.
-- [Ethernauts](https://ethernaut.openzeppelin.com/) - Learn Smart contract security by 'hacking' different contracts due to common vulnerabilities.
+- [Ethernauts](https://ethernaut.openzeppelin.com/) - Learn smart contract security by 'hacking' different contracts due to common vulnerabilities.
 
 ### Reference Docs
 
