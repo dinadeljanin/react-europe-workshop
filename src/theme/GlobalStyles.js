@@ -112,7 +112,6 @@ const GlobalStyles = createGlobalStyle`
     border: none;
     margin: 0;
     padding: 0;
-    border: 1px solid red;
     &:disabled {
       user-select: none;
     }
@@ -180,7 +179,10 @@ const GlobalStyles = createGlobalStyle`
     border: 2px solid #000;
     background-color: #fff;
     color: #000;
+    display: block;
+    margin: 0 auto;
     border-radius: 25px;
+    cursor: pointer;
   }
 `;
 
