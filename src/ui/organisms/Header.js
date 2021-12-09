@@ -2,13 +2,17 @@ import React, { useContext } from 'react'
 
 import { Web3Provider } from '../../context'
 import MetaMaskButton from '../atoms/MetaMaskButton'
+import Account from '../atoms/Account'
 import ConnectButton from '../atoms/ConnectButton'
 
 const Header = () => {
-  const { provider } = useContext(Web3Provider)
+  const { provider, user } = useContext(Web3Provider)
+  const { address } = user
 
   const renderSwitch = () => {
     switch(true) {
+      case address !== '':
+        return <Account />
       case provider !== null:
         return <ConnectButton />
       case !provider:

@@ -5,10 +5,7 @@ export const initialState = {
   chainId: 0,
   provider: null,
   user: {
-    accounts: [],
     address: '',
-    ens: null,
-    avatar: null,
     balance: 0,
   },
   transactionFeedback: {
