@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import plus from '../../assets/plus.svg'
+import minus from '../../assets/minus.svg'
+
 const Wrap = styled.div`
-  border: 1px solid red;
   display: flex;
   margin: 1em auto;
   flex-direction: row;
@@ -17,20 +19,46 @@ const Wrap = styled.div`
     font-size: 1.4em;
     padding: 0.5em;
     border-radius: 0;
+    background-size: cover;
   }
   input {
     display: block;
-    height: 105%;
+    background-color: #fff;
+    height: 42px;
     width: 50px;
   }
 `
 
 const Counter = () => {
+
+  const changeQuantity = (operation) => {
+    switch(operation) {
+      case 'plus':
+       console.log('increase')
+      break
+      case 'minus':
+        console.log('decrease')
+      break
+      default:
+      break
+    }
+  }
+
   return (
     <Wrap>
-      <button>-</button>
+      <button
+        type="button"
+        image="minus"
+        onClick={() => changeQuantity('minus')}>
+        <img src={minus} alt="Decrease Button"/>
+      </button>
       <input type="number" />
-      <button>+</button>
+      <button
+        type="button"
+        image="plus"
+        onClick={() => changeQuantity('plus')}>
+        <img src={plus} alt="Increase Button"/>
+      </button>
     </Wrap>
   )
 }

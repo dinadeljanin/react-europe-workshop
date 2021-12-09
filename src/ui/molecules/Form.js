@@ -17,6 +17,8 @@ const Form = () => {
   const { user, provider } = useContext(Web3Provider)
   const { address } = user
 
+  const quantityRef = useRef()
+
   return (
     <form action="">
       <Header>

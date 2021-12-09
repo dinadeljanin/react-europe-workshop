@@ -176,11 +176,14 @@ const GlobalStyles = createGlobalStyle`
   }
 
   input[type="submit"] {
-    // border: 2px solid #000;
-    // background-color: #fff;
-    background-color: #000;
-    color: #fff;
-    // color: #000;
+    border: 2px solid #000;
+    background-color: #fff;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    padding: 0.5em;
+    height: fit-content;
+    color: #000;
     display: block;
     margin: 0 auto;
     border-radius: 25px;
