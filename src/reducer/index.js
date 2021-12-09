@@ -6,7 +6,6 @@ export const reducer = (state, action) => {
       state.network = action.payload.name
       state.chainId = action.payload.chainId
       return
-    // Connect_web3
     default: break
   }
 }

@@ -12,10 +12,20 @@ export const Web3Provider = createContext(initialState)
 export const Provider = ({children}) => {
   const [state, dispatch] = useImmerReducer(reducer, initialState)
 
-  const connectUser = useCallback(async() => {
+  const connectUser = useCallback(async(accounts) => {
+    const connectedAccount = {
+      address: accounts[0],
+      // allowance: parseInt(smolNumberify(allowance)),
+      // balance: parseInt(smolNumberify(balance)),
+
+    }
+
+    console.log(connectedAccount)
+  }, [dispatch])
+
+  const connectProvider = useCallback(async() => {
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     if (provider) {
-      // Dive into why the signer is important
       const signer = await provider.getSigner()
       const { name, chainId } = await provider.getNetwork()
       dispatch({
@@ -24,14 +34,27 @@ export const Provider = ({children}) => {
           provider, signer, name, chainId
         }
       })
+      const accounts = await window.ethereum.request({ method: "eth_accounts" })
+      if (accounts.length > 0) {
+        connectUser(accounts)
+      }
     }
-  }, [dispatch])
+  }, [dispatch, connectUser])
 
   useEffect(() => {
     if (window.ethereum) {
-      connectUser()
+      connectProvider()
     }
-  }, [connectUser])
+  }, [connectProvider])
+
+  const connect = async () => {
+    try {
+      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+      connectUser(accounts)
+    } catch (e) {
+      console.log('o no, our app is broken')
+    }
+  }
 
   const { isLoading, isConnected, network, chainId, provider, user, transactionFeedback } = state
   return (
@@ -43,7 +66,8 @@ export const Provider = ({children}) => {
         network,
         provider,
         transactionFeedback,
-        user
+        user,
+        actions: { connect }
       }}>
       {children}
     </Web3Provider.Provider>
