@@ -19,8 +19,7 @@ export const Provider = ({children}) => {
       balance
     }
     dispatch({ type: 'CONNECT_USER', payload: connectedAccount })
-
-    console.log(connectedAccount)
+    
   }, [dispatch])
 
   const connectProvider = useCallback(async() => {

@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext, useRef, useState, useEffect, useLayoutEffect } from 'react'
 import styled from 'styled-components'
 import { lighten } from 'polished'
 
@@ -10,24 +10,23 @@ const Header = styled.div`
   text-align: center;
   padding: 1em;
   background-color: ${lighten(0.15, '#52B2CF')};
-  border-bottom: 2px solid #000;
+  border-bottom: 3px solid #000;
 `
 
 const Form = () => {
   const { user, provider } = useContext(Web3Provider)
   const { address } = user
+  const [ticketAmount, setAmount] = useState(1);
 
-  const quantityRef = useRef()
-
-  return (
+  return provider !== null && address !== '' && (
     <form action="">
       <Header>
-        <h2>Buy a Ticket</h2>
+        <h1>Buy a Ticket</h1>
       </Header>
       <fieldset disabled={provider === null || address === ''}>
         <Balance />
-        <Counter />
-        <input type="submit" value="Purchase for 3 ETH" />
+        <Counter amount={ticketAmount} setAmount={setAmount} />
+        <input type="submit" value={`Purchase for ${ticketAmount} ETH`} />
       </fieldset>
     </form>
   )

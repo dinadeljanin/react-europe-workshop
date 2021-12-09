@@ -93,12 +93,12 @@ const GlobalStyles = createGlobalStyle`
   }
 
   form {
-    height: 400px;
+    height: fit-content;
     width: 300px;
     justify-self: center;
     align-self: center;
-    // padding: 2em;
-    border: 2px solid #000;
+    padding-bottom: 2em;
+    border: 3px solid #000;
   }
 
   legend {
@@ -148,16 +148,14 @@ const GlobalStyles = createGlobalStyle`
   }
 
   input {
-    width: calc(100% - 1em - 60px);
-    margin: 1em 0;
-    height: 40px;
     border: none;
     outline: none;
     margin: 0;
     padding: 0;
-    padding-left: .5em;
-    font-size: 1.1em;
-    line-height: 25px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.25em;
+    font-weight: 600;
+    line-height: 1.25em;
     transition: 0.2s;
     color: #000;
     &:disabled { cursor: not-allowed; user-select: none; }
@@ -176,14 +174,14 @@ const GlobalStyles = createGlobalStyle`
   }
 
   input[type="submit"] {
-    border: 2px solid #000;
-    background-color: #fff;
+    // border: 2px solid #000;
+    background-color: #000;
     font-family: 'Quicksand', sans-serif;
     font-weight: 600;
     text-align: center;
-    padding: 0.5em;
+    padding: 0.65em 1em;
     height: fit-content;
-    color: #000;
+    color: #fff;
     display: block;
     margin: 0 auto;
     border-radius: 25px;

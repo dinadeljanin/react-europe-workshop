@@ -12,6 +12,7 @@ const Wrap = styled.div`
   margin: 1em auto;
   > p:first-of-type {
     font-weight: 500;
+    font-size: 1.1em;
     color: ${transparentize(0.35, '#000')};
   }
   > div {
@@ -21,8 +22,8 @@ const Wrap = styled.div`
     width: fit-content;
     margin: 0 auto;
     > p {
-      font-size: 1.5em;
-      font-weight: 500;
+      font-size: 1.75em;
+      font-weight: 600;
     }
     > img {
       margin-left: 5px;
