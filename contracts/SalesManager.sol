@@ -2,27 +2,20 @@
 pragma solidity 0.8.7;
 
 import "./NFTTicket.sol";
+import "@openzeppelin/contracts/access/Ownable.sol"; // Access control - only allows the smart contract owner to mint NFTs
 
-/// @title Web3Workshop
+/// @title SalesManager
 /// @author NFT Buying Wojak and Frens
 /// @notice A contract to buy event tickets in Web3
 /// @dev Unaudited contract for learning purposes only
 //  Note: contract is equivalent to class keyword
-contract Web3Workshop {
+contract SalesManager is Ownable {
   // STATE VARIABLES
   // State variables live on the blockchain and act like storage
   // The more state variables the more the contract costs to deploy to chain
-  uint256 public ticketsSold;
+  uint256 public ticketsSold; // implict 0 by default
   uint256 public maxAttendees;
   uint256 public basePrice;
-
-  // Address are primitive types in Ehereum
-  // Think of them like your email or bank number
-  // see: https://docs.soliditylang.org/en/v0.8.3/types.html?highlight=address#address
-  address public owner;
-
-  // Create NFT ticket contract instance
-  NFTTicket nftTicket = NFTTicket(owner);
 
   // Do we want a bool for if someone is attending,
   // or rather how many tickets they have,
@@ -34,20 +27,24 @@ contract Web3Workshop {
   /// @notice holds public state of the attendee list
   mapping(address => bool) public attendees;
 
-  NFTTicket nftticket = NFTTicket(owner);
+  NFTTicket nftTicket;
 
   /// EVENTS
   // Events alert the front end to what happened
   event TicketBought(address _attendee);
 
   /// @notice This constructor sets up the max amount of event attendees
-  constructor(uint256 _maxAttendees, uint256 _basePrice) {
+  constructor(
+    uint256 _maxAttendees,
+    uint256 _basePrice,
+    address _nftTicket
+  ) {
     maxAttendees = _maxAttendees;
-    ticketsSold = _basePrice;
+    basePrice = _basePrice;
 
-    // Whoever calls the account is the contract owner
-    owner = msg.sender;
-    basePrice = 1;
+    // Create NFT ticket contract instance
+    // deployed prior in depoly script
+    nftTicket = NFTTicket(_nftTicket);
   }
 
   /// The function modifier can be added to function signature
@@ -59,7 +56,7 @@ contract Web3Workshop {
     // gas fee to pay for computation is still consumed.
     // see: https://solidity-by-example.org/gas/
     // see: https://www.geeksforgeeks.org/solidity-error-handling/
-    require(ticketsSold >= maxAttendees, "All sold out.");
+    require(ticketsSold < maxAttendees, "All sold out.");
     // indicates to call function.
     // Can be placed before or after code and used multiple times
     _;
@@ -70,6 +67,11 @@ contract Web3Workshop {
       attendees[msg.sender] == false,
       "already purchased, 1 ticket per person"
     );
+    _;
+  }
+
+  modifier checkCorrectPayment() {
+    require(msg.value == basePrice, "Please pay the correct price");
     _;
   }
 
@@ -85,12 +87,15 @@ contract Web3Workshop {
   /// then checks total payment matches funds sent - checkPayment
 
   function buyTicket()
-    external
+    public
     payable
     isNotSoldOut
+    checkCorrectPayment
     hasNotBought(msg.sender)
-    returns (bool)
   {
+    // mint ticket
+    nftTicket.mintNFT(msg.sender);
+
     // Add ticket owner to mapping which holds our smart contract's "database"
     attendees[msg.sender] = true;
 
@@ -99,8 +104,10 @@ contract Web3Workshop {
 
     // Let front end know of tickets
     emit TicketBought(msg.sender);
+  }
 
-    // Return bool to confirm
-    return true;
+  // owner get paid
+  function withdrawFundsByOwner(address _recipient) public onlyOwner {
+    payable(_recipient).transfer(address(this).balance);
   }
 }
