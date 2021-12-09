@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { lighten } from 'polished'
 
@@ -10,22 +10,37 @@ const Header = styled.div`
   text-align: center;
   padding: 1em;
   background-color: ${lighten(0.15, '#52B2CF')};
-  border-bottom: 2px solid #000;
+  border-bottom: 3px solid #000;
+  p {
+    margin-top: .5em;
+    font-weight: 500;
+  }
 `
 
 const Form = () => {
+  const [disabled, setDisabled] = useState(true)
   const { user, provider } = useContext(Web3Provider)
   const { address } = user
+  const [ticketAmount, setAmount] = useState(1);
+
+  useEffect(() => {
+    (address !== '' && provider) && setDisabled(false)
+  }, [address, provider])
 
   return (
+    // on submit
+    // Grab user address and amount and tickets
+    // Throw that into a modal with a transaction receipt
     <form action="">
       <Header>
-        <h2>Buy a Ticket</h2>
+        <h1>Buy a Ticket</h1>
+        {/* Will change, pending ABI */}
+        <p>100/100 Remaining</p>
       </Header>
-      <fieldset disabled={provider === null || address === ''}>
+      <fieldset disabled={disabled}>
         <Balance />
-        <Counter />
-        <input type="submit" value="Purchase for 3 ETH" />
+        <Counter amount={ticketAmount} setAmount={setAmount} disabled={disabled} />
+        <input type="submit" value={`Purchase for ${ticketAmount} ETH`} />
       </fieldset>
     </form>
   )

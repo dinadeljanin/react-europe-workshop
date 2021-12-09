@@ -20,7 +20,6 @@ export const Provider = ({children}) => {
     }
     dispatch({ type: 'CONNECT_USER', payload: connectedAccount })
 
-    console.log(connectedAccount)
   }, [dispatch])
 
   const connectProvider = useCallback(async() => {
@@ -34,7 +33,7 @@ export const Provider = ({children}) => {
           provider, signer, name, chainId
         }
       })
-      const accounts = await window.ethereum.request({ method: "eth_accounts" })
+      const accounts = await window.ethereum.request({ method: 'eth_accounts' })
       if (accounts.length > 0) {
         connectUser(provider, accounts)
       }
@@ -52,7 +51,7 @@ export const Provider = ({children}) => {
       const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
       connectUser(provider, accounts)
     } catch (e) {
-      console.log('o no, our app is broken')
+      console.log('o no, our dApp... it\'s broken')
     }
   }
 
