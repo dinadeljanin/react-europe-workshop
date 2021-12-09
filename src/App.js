@@ -1,8 +1,10 @@
 import GlobalStyles from './theme/GlobalStyles';
 
 import Header from './ui/organisms/Header'
+import Footer from './ui/organisms/Footer'
 
 import Onboarding from './ui/templates/Onboarding'
+import Form from './ui/molecules/Form'
 
 function App() {
   return (
@@ -10,9 +12,10 @@ function App() {
       <GlobalStyles />
       <Onboarding />
       <Header />
-      <footer>
-        made with panicc for React Europe
-      </footer>
+      <main>
+        <Form />
+      </main>
+      <Footer />
     </>
   );
 }
