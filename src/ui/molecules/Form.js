@@ -27,15 +27,20 @@ const Form = () => {
     (address !== '' && provider) && setDisabled(false)
   }, [address, provider])
 
+  const buyTicket = async (e) => {
+    e.preventDefault()
+    console.log('ooooo')
+  }
+
   return (
-    // on submit
+    // On submit
     // Grab user address and amount and tickets
     // Throw that into a modal with a transaction receipt
-    <form action="">
+    <form onSubmit={buyTicket}>
       <Header>
         <h1>Buy a Ticket</h1>
         {/* Will change, pending ABI */}
-        <p>100/100 Remaining</p>
+        {!disabled && <p>100/100 Remaining</p>}
       </Header>
       <fieldset disabled={disabled}>
         <Balance />
