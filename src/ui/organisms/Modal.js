@@ -31,14 +31,14 @@ const Container = styled(motion.div)`
   position: relative;
   width: 400px;
   z-index: 400;
-  border: 2px solid #000;
+  border: 3px solid #000;
 `
 
 const Header = styled.div`
   display: grid;
   place-items: center;
   padding: 0;
-  border-bottom: 2px solid #000;
+  border-bottom: 3px solid #000;
   background-color: #FFE3E3;
   height: 100px;
   width: 100%;

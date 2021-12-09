@@ -186,6 +186,10 @@ const GlobalStyles = createGlobalStyle`
     margin: 1.25em auto 0;
     border-radius: 25px;
     cursor: pointer;
+    &:disabled {
+      cursor: not-allowed;
+      user-select: none;
+    }
   }
 `;
 

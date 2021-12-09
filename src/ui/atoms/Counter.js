@@ -38,7 +38,7 @@ const Wrap = styled.div`
   }
 `
 
-const Counter = ({amount, setAmount}) => {
+const Counter = ({amount, setAmount, disabled}) => {
   const inputRef = useRef()
 
   const changeQuantity = (operation) => {
@@ -75,25 +75,28 @@ const Counter = ({amount, setAmount}) => {
   return (
     <Wrap>
       <button
-        type="button"
-        image="minus"
+        disabled={disabled}
+        type='button'
+        image='minus'
         onClick={() => changeQuantity('minus')}>
-        <img src={minus} alt="Decrease Button"/>
+        <img src={minus} alt='Decrease Button'/>
       </button>
       <input
+        disabled={disabled}
         onKeyPress={keyBlock}
         onChange={() => setAmount(inputRef.current.value)}
         ref={inputRef}
-        type="number"
+        type='number'
         value={amount}
         min='0'
         max='100'
       />
       <button
-        type="button"
-        image="plus"
+        disabled={disabled}
+        type='button'
+        image='plus'
         onClick={() => changeQuantity('plus')}>
-        <img src={plus} alt="Increase Button"/>
+        <img src={plus} alt='Increase Button'/>
       </button>
     </Wrap>
   )

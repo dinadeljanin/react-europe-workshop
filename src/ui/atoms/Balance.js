@@ -39,16 +39,19 @@ const Balance = () => {
 
   const smolBalance = ethers.utils.formatEther(balance)
 
-  return balance ? (
+  return (
     <Wrap>
       <p>Available Balance</p>
-      <div>
-        <p>{smolBalance}</p>
-        <img src={eth} alt='Ethereum Logo' />
-      </div>
+      {balance ? (
+        <div>
+          <p>{smolBalance}</p>
+          <img src={eth} alt='Ethereum Logo' />
+        </div>
+      ):(
+        <p>... y u poor</p>
+      )}
+
     </Wrap>
-  ):(
-    <p>???</p>
   )
 }
 
