@@ -97,7 +97,7 @@ const GlobalStyles = createGlobalStyle`
     width: 300px;
     justify-self: center;
     align-self: center;
-    padding: 2em;
+    // padding: 2em;
     border: 2px solid #000;
   }
 
@@ -112,6 +112,7 @@ const GlobalStyles = createGlobalStyle`
     border: none;
     margin: 0;
     padding: 0;
+    border: 1px solid red;
     &:disabled {
       user-select: none;
     }
@@ -151,8 +152,6 @@ const GlobalStyles = createGlobalStyle`
     width: calc(100% - 1em - 60px);
     margin: 1em 0;
     height: 40px;
-    box-shadow: rgba(0, 0, 0, 15%) 0px 5px 10px inset;
-    border-radius: 5px;
     border: none;
     outline: none;
     margin: 0;
@@ -175,6 +174,13 @@ const GlobalStyles = createGlobalStyle`
   input[type="date"]::-webkit-calendar-picker-indicator {
     margin-right: 5px;
     margin-top: 3px;
+  }
+
+  input[type="submit"] {
+    border: 2px solid #000;
+    background-color: #fff;
+    color: #000;
+    border-radius: 25px;
   }
 `;
 
