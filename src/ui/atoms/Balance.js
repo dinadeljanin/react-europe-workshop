@@ -15,6 +15,12 @@ const Wrap = styled.div`
     font-size: 1.1em;
     color: ${transparentize(0.35, '#000')};
   }
+  > img {
+    height: 100px;
+    display: block;
+    margin: 0.25em auto 0;
+    width: auto;
+  }
   > div {
     display: flex;
     flex-direction: row;
@@ -48,7 +54,7 @@ const Balance = () => {
           <img src={eth} alt='Ethereum Logo' />
         </div>
       ):(
-        <p>... y u poor</p>
+        <img src="https://c.tenor.com/lx2WSGRk8bcAAAAC/pulp-fiction-john-travolta.gif" alt=""/>
       )}
 
     </Wrap>
