@@ -46,6 +46,16 @@ export const Provider = ({children}) => {
     }
   }, [connectProvider])
 
+  window.ethereum.on('accountsChanged', () => {
+    console.log('o')
+    connectUser()
+    window.location.reload()
+  })
+  window.ethereum.on('chainChanged', () => {
+    connectUser()
+    window.location.reload()
+  })
+
   const connect = async () => {
     try {
       const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
