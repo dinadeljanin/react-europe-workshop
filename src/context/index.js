@@ -1,8 +1,8 @@
 import React, { createContext, useEffect, useCallback } from 'react'
 
-import detectEthereumProvider from '@metamask/detect-provider'
+// import detectEthereumProvider from '@metamask/detect-provider'
 import { useImmerReducer } from 'use-immer'
-import Web3 from 'web3'
+import { ethers } from 'ethers'
 
 import { initialState } from './initialState.js'
 import { reducer } from '../reducer'
@@ -13,21 +13,18 @@ export const Provider = ({children}) => {
   const [state, dispatch] = useImmerReducer(reducer, initialState)
 
   const connectUser = useCallback(async() => {
-    // We want to get a provider onload
-      const provider = await detectEthereumProvider()
-      // If it's found
-      if (provider) {
-        // Create new web3 instance
-        const web3Provider = new Web3(Web3.givenProvider || "ws://127.0.0.1:7545")
-        // Then we grab the chainId, the network
-        const chainId = web3Provider.eth.getChainId()
-        const network = web3Provider.eth.net.getId()
-
-        // First dispatch
-        dispatch({ type: 'CONNECT_PROVIDER', payload: web3Provider })
-
-
-      }
+    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    if (provider) {
+      // Dive into why the signer is important
+      const signer = await provider.getSigner()
+      const { name, chainId } = await provider.getNetwork()
+      dispatch({
+        type: 'CONNECT_PROVIDER',
+        payload: {
+          provider, signer, name, chainId
+        }
+      })
+    }
   }, [dispatch])
 
   useEffect(() => {

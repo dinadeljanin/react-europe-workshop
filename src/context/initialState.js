@@ -4,6 +4,7 @@ export const initialState = {
   network: null,
   chainId: 0,
   provider: null,
+  signer: null,
   user: {
     accounts: [],
     address: '',
