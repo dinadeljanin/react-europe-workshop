@@ -1,16 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
-  html {
-    height: 100vh;
-  }
-
   body {
     margin: 0;
     padding: 0;
     position: relative;
-    color: #000;
-    width: 100vw;
     font-family: 'Quicksand', sans-serif;
     > #root {
       overflow: scroll;
@@ -43,7 +37,6 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     border-bottom: 2px solid #000;
     background-color: #FFE3E3;
-    > * { justify-self: end; }
   }
 
   footer {
@@ -55,18 +48,13 @@ const GlobalStyles = createGlobalStyle`
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    align-self: end;
     display: flex;
+    justify-content: center;
     padding: 0 2em;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-    > * { width: fit-content; }
-    > p > a { text-decoration: underline; }
-    > div {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
+    > img {
+      height: 20px;
+      width: auto;
     }
   }
 
@@ -75,7 +63,7 @@ const GlobalStyles = createGlobalStyle`
     height: 100%;
     width: 75vw;
     justify-self: center;
-    align-self: stretch;
+    display: grid;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -105,11 +93,12 @@ const GlobalStyles = createGlobalStyle`
   }
 
   form {
-    height: 490px;
-    grid-area: form;
-    width: 425px;
+    height: 400px;
+    width: 300px;
+    justify-self: center;
+    align-self: center;
     padding: 2em;
-    border-radius: 15px;
+    border: 2px solid #000;
   }
 
   legend {
