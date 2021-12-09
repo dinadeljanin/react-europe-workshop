@@ -35,14 +35,14 @@ const GlobalStyles = createGlobalStyle`
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    border-bottom: 2px solid #000;
+    border-bottom: 3px solid #000;
     background-color: #FFE3E3;
   }
 
   footer {
     background-color: #FFE3E3;
     height: 80px;
-    border-top: 2px solid #000;
+    border-top: 3px solid #000;
     grid-area: footer;
     width: 100%;
     -webkit-box-sizing: border-box;
