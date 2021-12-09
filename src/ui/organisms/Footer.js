@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import wojak from '../../assets/wojak.png'
 
@@ -8,7 +7,6 @@ const Footer = () => {
     <footer>
       <img src={wojak} alt=""/>
       🤝 🦍
-
     </footer>
   )
 }
