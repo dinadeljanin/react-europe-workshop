@@ -1,6 +1,5 @@
 import React, { createContext, useEffect, useCallback } from 'react'
 
-// import detectEthereumProvider from '@metamask/detect-provider'
 import { useImmerReducer } from 'use-immer'
 import { ethers } from 'ethers'
 
@@ -12,13 +11,14 @@ export const Web3Provider = createContext(initialState)
 export const Provider = ({children}) => {
   const [state, dispatch] = useImmerReducer(reducer, initialState)
 
-  const connectUser = useCallback(async(accounts) => {
+  const connectUser = useCallback(async(provider, accounts) => {
+    const balance = await provider.getBalance(accounts[0])
+
     const connectedAccount = {
       address: accounts[0],
-      // allowance: parseInt(smolNumberify(allowance)),
-      // balance: parseInt(smolNumberify(balance)),
-
+      balance
     }
+    dispatch({ type: 'CONNECT_USER', payload: connectedAccount })
 
     console.log(connectedAccount)
   }, [dispatch])
@@ -36,7 +36,7 @@ export const Provider = ({children}) => {
       })
       const accounts = await window.ethereum.request({ method: "eth_accounts" })
       if (accounts.length > 0) {
-        connectUser(accounts)
+        connectUser(provider, accounts)
       }
     }
   }, [dispatch, connectUser])
@@ -50,7 +50,7 @@ export const Provider = ({children}) => {
   const connect = async () => {
     try {
       const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
-      connectUser(accounts)
+      connectUser(provider, accounts)
     } catch (e) {
       console.log('o no, our app is broken')
     }

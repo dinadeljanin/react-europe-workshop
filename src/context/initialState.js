@@ -6,10 +6,7 @@ export const initialState = {
   provider: null,
   signer: null,
   user: {
-    accounts: [],
     address: '',
-    ens: null,
-    avatar: null,
     balance: 0,
   },
   transactionFeedback: {

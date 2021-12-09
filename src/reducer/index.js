@@ -6,6 +6,10 @@ export const reducer = (state, action) => {
       state.network = action.payload.name
       state.chainId = action.payload.chainId
       return
+
+      case 'CONNECT_USER':
+        state.user = action.payload
+        return
     default: break
   }
 }
