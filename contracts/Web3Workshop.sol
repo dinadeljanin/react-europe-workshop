@@ -36,6 +36,11 @@ contract Web3Workshop {
   /// @notice holds public state of the attendee list
   mapping(address => Attendent) public attendees;
 
+
+  /// EVENTS 
+  // Events alert the front end to what happened
+  event TicketBought(uint tickets);
+
   /// @notice This constructor sets up the max amount of event attendees
   constructor(uint _maxAttendees, uint _basePrice) {
     ticketsSold = 0;
@@ -80,6 +85,8 @@ contract Web3Workshop {
 
     // Increase tickets sold count by num of tickets.
     ticketsSold = ticketsSold +  _amountOfTickets;
+
+    emit TicketBought(_amountOfTickets);
 
     // Return bool to confirm
     return true;
