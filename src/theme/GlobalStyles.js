@@ -183,7 +183,7 @@ const GlobalStyles = createGlobalStyle`
     height: fit-content;
     color: #fff;
     display: block;
-    margin: 0 auto;
+    margin: 1.25em auto 0;
     border-radius: 25px;
     cursor: pointer;
   }

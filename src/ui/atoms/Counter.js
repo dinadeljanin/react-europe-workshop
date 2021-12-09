@@ -44,10 +44,10 @@ const Counter = ({amount, setAmount}) => {
   const changeQuantity = (operation) => {
     switch(operation) {
       case 'plus':
-        return setAmount(amount+1)
+        return setAmount(amount + 1)
       case 'minus':
-        if (amount > 0) {
-          return setAmount(amount--)
+        if (amount > 1) {
+          return setAmount(amount - 1)
         } else {
           return setAmount(amount = 1)
         }
