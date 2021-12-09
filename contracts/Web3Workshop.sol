@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.10;
 
+import "./NFTTicket.sol";
+
 /// @title Web3Workshop
 /// @author NFT Buying Wojak and Frens
 /// @notice A contract to buy event tickets in Web3
@@ -20,6 +22,9 @@ contract Web3Workshop {
   // see: https://docs.soliditylang.org/en/v0.8.3/types.html?highlight=address#address
   address public owner;
 
+  // Create NFT ticket contract instance
+  NFTTicket nftTicket = NFTTicket(owner);
+
   // Do we want a bool for if someone is attending, 
   // or rather how many tickets they have, 
   // so can that be an array?
@@ -28,6 +33,7 @@ contract Web3Workshop {
   struct Attendent {
     address attendent;
     uint ticketQuantity;
+    uint[] tickets;
   }
 
   // public keyword creates an automatic getter
@@ -36,6 +42,7 @@ contract Web3Workshop {
   /// @notice holds public state of the attendee list
   mapping(address => Attendent) public attendees;
 
+  NFTTicket nftticket = NFTTicket(owner);
 
   /// EVENTS 
   // Events alert the front end to what happened
@@ -82,13 +89,30 @@ contract Web3Workshop {
     // Add ticket owner to mapping which holds our smart contract's "database"  
     attendees[msg.sender].attendent = msg.sender;
     attendees[msg.sender].ticketQuantity = _amountOfTickets;
+    
+    // mint number of tickets bought
+    buyLoop(_amountOfTickets);
 
     // Increase tickets sold count by num of tickets.
     ticketsSold = ticketsSold +  _amountOfTickets;
 
+    // Let front end know of tickets
     emit TicketBought(_amountOfTickets);
 
     // Return bool to confirm
     return true;
   }
+
+  /// @notice buys number of tickets ordered
+  /// @dev not very efficient, could be better ways of doing this
+  function buyLoop(uint _ticketsBought) internal {
+    for (uint i = 0; i < _ticketsBought; i++) {
+      // mint NFT to call
+      attendees[msg.sender].tickets.push(
+        nftticket.mintNFT(msg.sender)
+      );
+    }
+  }
+
+
 }
