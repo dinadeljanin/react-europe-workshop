@@ -43,17 +43,19 @@ export const Provider = ({children}) => {
   useEffect(() => {
     if (window.ethereum) {
       connectProvider()
-    }
-  }, [connectProvider])
 
-  window.ethereum.on('accountsChanged', () => {
-    connectUser()
-    window.location.reload()
-  })
-  window.ethereum.on('chainChanged', () => {
-    connectUser()
-    window.location.reload()
-  })
+      window.ethereum.on('accountsChanged', () => {
+        connectUser()
+        window.location.reload()
+      })
+      window.ethereum.on('chainChanged', () => {
+        connectProvider()
+        window.location.reload()
+      })
+    }
+  }, [connectProvider, connectUser])
+
+
 
   const connect = async () => {
     try {

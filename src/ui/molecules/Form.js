@@ -32,7 +32,6 @@ const Form = () => {
   }
 
   return (
-    // On submit
     // Grab user address and amount and tickets
     // Throw that into a modal with a transaction receipt
     <form onSubmit={buyTicket}>
